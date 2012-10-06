@@ -63,11 +63,14 @@
     <Reference Include="log4net">
       <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Bson">
-      <HintPath>..\packages\mongocsharpdriver.1.5\lib\net35\MongoDB.Bson.dll</HintPath>
+    <Reference Include="Meracord.ACH.PaymentBatchManager.InternalMessages">
+      <HintPath>..\packages\Meracord.ACH.PaymentBatchManager.InternalMessages.1.0.0.20\lib\net40\Meracord.ACH.PaymentBatchManager.InternalMessages.dll</HintPath>
     </Reference>
-    <Reference Include="MongoDB.Driver">
-      <HintPath>..\packages\mongocsharpdriver.1.5\lib\net35\MongoDB.Driver.dll</HintPath>
+    <Reference Include="Meracord.ACH.ProcessPayments.InternalMessages">
+      <HintPath>..\packages\Meracord.ACH.ProcessPayments.InternalMessages.1.0.0.11\lib\net40\Meracord.ACH.ProcessPayments.InternalMessages.dll</HintPath>
+    </Reference>
+    <Reference Include="Meracord.Messaging">
+      <HintPath>..\packages\Meracord.Messaging.1.0.0.6\lib\net40\Meracord.Messaging.dll</HintPath>
     </Reference>
     <Reference Include="NServiceBus">
       <HintPath>..\packages\NServiceBus.3.2.8\lib\net40\NServiceBus.dll</HintPath>
@@ -84,9 +87,6 @@
     <Reference Include="Quartz">
       <HintPath>..\packages\Quartz.2.0.1\lib\net40\Quartz.dll</HintPath>
     </Reference>
-    <Reference Include="Quartz.Impl.MongoDB">
-      <HintPath>..\packages\quartz.impl.mongodb.1.2\lib\net4\Quartz.Impl.MongoDB.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -100,7 +100,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\StartAchPaymentProcessing.cs" />
     <Compile Include="EndpointConfiguration.cs" />
     <Compile Include="Exporter.cs" />
     <Compile Include="IoCJobFactory.cs" />
@@ -118,7 +117,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Readme\Quartz.Impl.MongoDB.txt" />
     <Content Include="Schedules.sdf">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>

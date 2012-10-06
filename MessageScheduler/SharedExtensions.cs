@@ -2,6 +2,7 @@ using System;
 using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Linq;
+using System.Linq.Expressions;
 
 namespace MessageScheduler
 {
@@ -12,8 +13,8 @@ namespace MessageScheduler
             return displayNameAttributes.Cast<DisplayNameAttribute>().Select(x => x.DisplayName).FirstOrDefault();
         }
 
-        public static void AddConfigurationElement<T>(this NameValueCollection properties, T element) {
-            var propertyName = element.GetDisplayName();
+        public static void AddConfigurationElement<TModel, TProperty>(this NameValueCollection properties, Expression<Func<TModel, TProperty>> expression, TModel element) {
+            var propertyName = expression.GetDisplayName();
             AddConfigurationElement(properties, propertyName, element.ToString());
         }
 

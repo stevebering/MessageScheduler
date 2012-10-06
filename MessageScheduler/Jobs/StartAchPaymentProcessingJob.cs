@@ -1,5 +1,4 @@
 using System;
-using MessageScheduler.Commands;
 using NServiceBus;
 using Quartz;
 
@@ -10,11 +9,16 @@ namespace MessageScheduler.Jobs
         public IBus Bus { get; set; }
 
         public void Execute(IJobExecutionContext context) {
-            var msg = new StartAchPaymentProcessing {
-                CutoffDate = DateTime.Today.AddDays(1),
+            var m = new Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch() {
+                ACHDebitCutoffDate = DateTime.Today.AddDays(1),
+                DebitsPerBatchStartedCount = 1000,
+                PaymentBatchGUID = Guid.NewGuid(),
+                RequestedBy = "scheduling_service",
+                RequestedDate = DateTime.UtcNow,
+                SessionID = 1,
             };
 
-            Bus.Send(msg);
+            Bus.Send(m);
         }
     }
 }

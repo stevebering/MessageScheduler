@@ -35,18 +35,18 @@ namespace MessageScheduler
         public static NameValueCollection Serialize(SchedulerHostConfiguration cfg) {
             var properties = new NameValueCollection();
 
-            properties.AddConfigurationElement(cfg.InstanceName);
+            properties.AddConfigurationElement(x => x.InstanceName, cfg);
 
             // set threadpool info 
-            properties.AddConfigurationElement(cfg.Threadpool.Type);
-            properties.AddConfigurationElement(cfg.Threadpool.ThreadCount);
-            properties.AddConfigurationElement(cfg.Threadpool.ThreadPriority);
+            properties.AddConfigurationElement(x => x.Threadpool.Type, cfg);
+            properties.AddConfigurationElement(x => x.Threadpool.ThreadCount, cfg);
+            properties.AddConfigurationElement(x => x.Threadpool.ThreadPriority, cfg);
 
             // set remoting exporter
-            properties.AddConfigurationElement(cfg.Exporter.Type);
-            properties.AddConfigurationElement(cfg.Exporter.Port);
-            properties.AddConfigurationElement(cfg.Exporter.BindName);
-            properties.AddConfigurationElement(cfg.Exporter.ChannelType);
+            properties.AddConfigurationElement(x => x.Exporter.Type, cfg);
+            properties.AddConfigurationElement(x => x.Exporter.Port, cfg);
+            properties.AddConfigurationElement(x => x.Exporter.BindName, cfg);
+            properties.AddConfigurationElement(x => x.Exporter.ChannelType, cfg);
 
             // set jobstore properties
             properties.AddConfigurationElement(cfg.JobStore.Type);

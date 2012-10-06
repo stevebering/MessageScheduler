@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Meracord.ACH.ProcessPayments.InternalMessages</name>
+    </assembly>
+    <members>
+        <member name="P:Meracord.ACH.ProcessPayments.InternalMessages.ProcessACHPayment.RequestedDate">
+            <summary>
+            Required. Indicates the date on which a reschedule program request was made.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.ProcessPayments.InternalMessages.ProcessACHPayment.RequestedBy">
+            <summary>
+            Required. Identifies the person who originated the reschedule program request.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.ProcessPayments.InternalMessages.ProcessACHPayment.SessionID">
+            <summary>
+            Required. Identifies the logging session that the Shield ACH debit processor should use.
+            </summary>
+        </member>
+    </members>
+</doc>

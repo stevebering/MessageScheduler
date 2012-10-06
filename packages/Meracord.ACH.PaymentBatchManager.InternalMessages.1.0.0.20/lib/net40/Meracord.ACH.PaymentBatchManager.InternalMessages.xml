@@ -1,0 +1,124 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Meracord.ACH.PaymentBatchManager.InternalMessages</name>
+    </assembly>
+    <members>
+        <member name="T:Meracord.ACH.PaymentBatchManager.InternalMessages.CompleteACHPaymentBatch">
+            <summary>
+            Message sent by PaymentBatchPolicy saga to complete a payment batch.
+            </summary>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.CompleteACHPaymentBatch.PaymentBatchID">
+            <summary>
+            Required. Identifies the ACH payment batch that should complete.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.CompleteACHPaymentBatch.RequestedDate">
+            <summary>
+            Required. Indicates the date on which the complete ACH payment batch request was made.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.CompleteACHPaymentBatch.RequestedBy">
+            <summary>
+            Required. Identifies who requested the ACH payment batch.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Meracord.ACH.PaymentBatchManager.InternalMessages.CancelACHPaymentBatch">
+            <summary>
+            Message forwarded by PaymentBatchPolicy saga to cancel an ACH payment batch.
+            </summary>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.CancelACHPaymentBatch.PaymentBatchID">
+            <summary>
+            Required. Identifies the payment batch that should be cancelled.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.CancelACHPaymentBatch.RequestedDate">
+            <summary>
+            Required. Indicates the date on which a reschedule program request was made.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.CancelACHPaymentBatch.RequestedBy">
+            <summary>
+            Required. Identifies who requested the cancellation of the ACH payment batch.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="T:Meracord.ACH.PaymentBatchManager.InternalMessages.FinalizeACHPaymentBatch">
+            <summary>
+            Message sent by PaymentBatchPolicy saga to finalize an ACH payment batch by
+            performing tasks such as logging statistics provided by the policy.
+            </summary>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.FinalizeACHPaymentBatch.PaymentBatchID">
+            <summary>
+            Required. Identifies the payment batch that should be finalized and completed.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.FinalizeACHPaymentBatch.RequestedDate">
+            <summary>
+            Required. Indicates the date on which a complete ACH payment batch request was made.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.FinalizeACHPaymentBatch.RequestedBy">
+            <summary>
+            Required. Identifies who requested that the ACH payment batch be marked as complete.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.FinalizeACHPaymentBatch.FirstEventID">
+            <summary>
+            Required. Identifies the first process event that was logged when the payment batch started.
+            The handler of this message will update the event with the final processing result.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch.RequestedDate">
+            <summary>
+            Required. Indicates the date on which a reschedule program request was made.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch.RequestedBy">
+            <summary>
+            Required. Identifies the person who originated the reschedule program request.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch.ACHDebitCutoffDate">
+            <summary>
+            Required. Indicates the cutoff date to use when selecting debits to process.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch.SessionID">
+            <summary>
+            Required. Identifies the logging session to use for this batch of debits.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch.DebitsPerBatchStartedCount">
+            <summary>
+            Required. Indicates the count of debits to send in each PaymentBatchStarted message.
+            On subsequent messages, the saga will append the list of debits to its list.
+            </summary>
+            <remarks></remarks>
+        </member>
+        <member name="P:Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch.PaymentBatchGUID">
+            <summary>
+            Required. The GUID that the payment batch manager should use when it creates 
+            a new PaymentBatch entity. Provides a correlation reference between Shield and 
+            its ACH endpoints.
+            </summary>
+            <remarks></remarks>
+        </member>
+    </members>
+</doc>
