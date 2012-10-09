@@ -3,6 +3,10 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageScheduler", "MessageScheduler\MessageScheduler.csproj", "{17F0386E-BF5B-4778-8172-A7179181D39A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageSchedulerMonitor", "MessageSchedulerMonitor\MessageSchedulerMonitor.csproj", "{EDF5A163-D7B5-4BEB-B244-69F4884CBF34}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageSchedulerMonitor.Tests", "MessageSchedulerMonitor.Tests\MessageSchedulerMonitor.Tests.csproj", "{44E4259F-ECEA-4698-B8E0-E4BB21ED4CD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +17,14 @@ Global
 		{17F0386E-BF5B-4778-8172-A7179181D39A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17F0386E-BF5B-4778-8172-A7179181D39A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17F0386E-BF5B-4778-8172-A7179181D39A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDF5A163-D7B5-4BEB-B244-69F4884CBF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDF5A163-D7B5-4BEB-B244-69F4884CBF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDF5A163-D7B5-4BEB-B244-69F4884CBF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDF5A163-D7B5-4BEB-B244-69F4884CBF34}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44E4259F-ECEA-4698-B8E0-E4BB21ED4CD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44E4259F-ECEA-4698-B8E0-E4BB21ED4CD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44E4259F-ECEA-4698-B8E0-E4BB21ED4CD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44E4259F-ECEA-4698-B8E0-E4BB21ED4CD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

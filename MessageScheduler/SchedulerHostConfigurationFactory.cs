@@ -23,8 +23,8 @@ namespace MessageScheduler
                     Type = typeof(Quartz.Impl.AdoJobStore.JobStoreTX),
                     DriverDelegateType = typeof(Quartz.Impl.AdoJobStore.StdAdoDelegate),
                     DataSource = new DataSource {
-                        ConnectionString = @"Data Source=D:\MessageScheduler\MessageScheduler\schedules.sdf;Persist Security Info=false;",
-                        Provider = "SqlServerCE-400",
+                        ConnectionString = @"Data Source=D:\MessageScheduler\MessageScheduler\quartz2-sqlce4.sdf;Persist Security Info=false;",
+                        Provider = "SqlServerCe-400",
                     }
                 }
             };
@@ -38,22 +38,26 @@ namespace MessageScheduler
             properties.AddConfigurationElement(x => x.InstanceName, cfg);
 
             // set threadpool info 
-            properties.AddConfigurationElement(x => x.Threadpool.Type, cfg);
-            properties.AddConfigurationElement(x => x.Threadpool.ThreadCount, cfg);
-            properties.AddConfigurationElement(x => x.Threadpool.ThreadPriority, cfg);
+            properties.Add("quartz.threadPool.type", "Quartz.Simpl.SimpleThreadPool, Quartz");
+            //properties.AddConfigurationElement(x => x.Type, cfg.Threadpool);
+            properties.AddConfigurationElement(x => x.ThreadCount, cfg.Threadpool);
+            properties.AddConfigurationElement(x => x.ThreadPriority, cfg.Threadpool);
 
             // set remoting exporter
-            properties.AddConfigurationElement(x => x.Exporter.Type, cfg);
-            properties.AddConfigurationElement(x => x.Exporter.Port, cfg);
-            properties.AddConfigurationElement(x => x.Exporter.BindName, cfg);
-            properties.AddConfigurationElement(x => x.Exporter.ChannelType, cfg);
+            properties.Add("quartz.scheduler.exporter.type", "Quartz.Simpl.RemotingSchedulerExporter, Quartz");
+            //properties.AddConfigurationElement(x => x.Type, cfg.Exporter);
+            properties.AddConfigurationElement(x => x.Port, cfg.Exporter);
+            properties.AddConfigurationElement(x => x.BindName, cfg.Exporter);
+            properties.AddConfigurationElement(x => x.ChannelType, cfg.Exporter);
 
             // set jobstore properties
-            properties.AddConfigurationElement(cfg.JobStore.Type);
-            properties.AddConfigurationElement(cfg.JobStore.DriverDelegateType);
+            properties.Add("quartz.jobStore.type", "Quartz.Impl.AdoJobStore.JobStoreTX, Quartz");
+            properties.Add("quartz.jobStore.driverDelegateType", "Quartz.Impl.AdoJobStore.StdAdoDelegate, Quartz");
+            //properties.AddConfigurationElement(x => x.Type, cfg.JobStore);
+            //properties.AddConfigurationElement(x => x.DriverDelegateType, cfg.JobStore);
             properties.Add("quartz.jobStore.dataSource", "quartzDataSource");
-            properties.AddConfigurationElement(cfg.JobStore.DataSource.ConnectionString);
-            properties.AddConfigurationElement(cfg.JobStore.DataSource.Provider);
+            properties.AddConfigurationElement(x => x.ConnectionString, cfg.JobStore.DataSource);
+            properties.AddConfigurationElement(x => x.Provider, cfg.JobStore.DataSource);
 
             return properties;
         }

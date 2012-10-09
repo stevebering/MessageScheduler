@@ -30,6 +30,7 @@ namespace MessageScheduler.Schedulers
                 })
                 .Build();
 
+            scheduler.Clear();
             scheduler.ScheduleJob(startAchPayments, achPaymentsTrigger);
         }
     }
