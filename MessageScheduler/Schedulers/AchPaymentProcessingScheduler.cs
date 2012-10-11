@@ -19,19 +19,11 @@ namespace MessageScheduler.Schedulers
                 .UsingJobData(map)
                 .Build();
 
-            var startAt4Am = DateBuilder.NewDateInTimeZone(TimeZoneInfo.Local)
-                .AtHourOfDay(4)
-                .AtMinute(0)
-                .AtSecond(0)
-                .Build();
+            var schedule = SchedulingExtensions.DailyAt(4);
 
             ITrigger achPaymentsTrigger = TriggerBuilder.Create()
                 .WithIdentity("StartAchPaymentsTriggerDaily", "DailyTriggers")
-                .StartAt(startAt4Am)
-                .WithSimpleSchedule(x => {
-                    x.RepeatForever();
-                    x.WithIntervalInHours(24);
-                })
+                .WithCronSchedule(schedule, c => c.InTimeZone(TimeZoneInfo.Local))
                 .Build();
 
             scheduler.Clear();
