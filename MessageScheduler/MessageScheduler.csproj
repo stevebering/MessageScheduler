@@ -101,16 +101,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EndpointConfiguration.cs" />
-    <Compile Include="Exporter.cs" />
     <Compile Include="IoCJobFactory.cs" />
     <Compile Include="Jobs\StartAchPaymentProcessingJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SchedulerHostConfiguration.cs" />
-    <Compile Include="SchedulerHostConfigurationFactory.cs" />
     <Compile Include="Schedulers\AchPaymentProcessingScheduler.cs" />
     <Compile Include="Schedulers\JobScheduler.cs" />
-    <Compile Include="SharedExtensions.cs" />
-    <Compile Include="Threadpool.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

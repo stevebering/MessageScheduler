@@ -6,8 +6,13 @@ namespace MessageScheduler.Jobs
 {
     public class StartAchPaymentProcessingJob : IJob
     {
-        public IBus Bus { get; set; }
+        private readonly IBus _bus;
 
+        public StartAchPaymentProcessingJob(IBus bus)
+        {
+            _bus = bus;
+        }
+        
         public void Execute(IJobExecutionContext context) {
             var m = new Meracord.ACH.PaymentBatchManager.InternalMessages.StartACHPaymentBatch() {
                 ACHDebitCutoffDate = DateTime.Today.AddDays(1),
@@ -18,7 +23,7 @@ namespace MessageScheduler.Jobs
                 SessionID = 1,
             };
 
-            Bus.Send(m);
+            _bus.Send(m);
         }
     }
 }
